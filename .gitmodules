@@ -1,0 +1,15 @@
+[submodule "lib/qt5"]
+	path = lib/qt5
+	url = https://github.com/qt/qt5.git
+[submodule "lib/boost"]
+	path = lib/boost
+	url = https://github.com/boostorg/boost.git
+[submodule "lib/cucumber"]
+	path = lib/cucumber
+	url = https://github.com/cucumber/cucumber.git
+[submodule "lib/cucumber-cpp"]
+	path = lib/cucumber-cpp
+	url = https://github.com/cucumber/cucumber-cpp.git
+[submodule "lib/Catch"]
+	path = lib/Catch
+	url = https://github.com/philsquared/Catch.git

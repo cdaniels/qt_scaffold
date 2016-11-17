@@ -1,2 +1,2 @@
-# qt_scaffold
-a simple scaffold for qt projects
+# scaffold for Qt project with test suite
+Hello World
