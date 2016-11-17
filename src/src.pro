@@ -13,7 +13,12 @@ SOURCES += *.cpp
 CONFIG += staticlib
 
 # specify the destination directory
-DESTDIR = ../build/release/
+CONFIG(debug, debug|release) {
+    DESTDIR = ../build/debug
+}
+CONFIG(release, debug|release) {
+    DESTDIR = ../build/release
+}
 
 OBJECTS_DIR = $$DESTDIR/.obj
 MOC_DIR = $$DESTDIR/.moc

@@ -14,15 +14,16 @@ INSTALLS += target
 HEADERS += ./src/*.h
 SOURCES += *.cpp
 
-LIBS += \
-  -L../build/release/ -lexample
-
 CONFIG += console
 
 CONFIG(debug, debug|release) {
+    LIBS += \
+        -L../build/debug/ -lexample
     DESTDIR = ../build/debug
 }
 CONFIG(release, debug|release) {
+    LIBS += \
+        -L../build/release/ -lexample
     DESTDIR = ../build/release
 }
 
