@@ -8,11 +8,18 @@ DEFINES += QT_NO_CAST_FROM_ASCII QT_NO_CAST_TO_ASCII
 
 SUBDIRS = \
   src \
-  app \
-  doc \
-  tests/unit_tests \
-  tests/end-to-end_tests \
-
+  app
 app.depends = src
-tests/unit_tests.depends = src
-tests/end-to-end_tests.depends = src
+
+unix {
+  SUBDIRS += \
+    tests/unit_tests \
+    tests/end-to-end_tests \
+    doc
+
+  tests/unit_tests.depends = src
+  tests/end-to-end_tests.depends = src
+}
+
+
+

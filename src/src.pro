@@ -20,6 +20,8 @@ MOC_DIR = $$DESTDIR/.moc
 RCC_DIR = $$DESTDIR/.qrc
 UI_DIR = $$DESTDIR/.u
 
+QMAKE_RPATHDIR += ../../build/release
+
 # Code coverage reporting (for Linux at least).
 COVERAGE_DIR = $$DESTDIR/coverage
 win32 {
@@ -32,7 +34,6 @@ unix:debug {
     QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
     QMAKE_LFLAGS += -fprofile-arcs -ftest-coverage
     QMAKE_CXXFLAGS_RELEASE -= -O1 -O2 -O3
-    QMAKE_RPATHDIR += ../../build/release
 
     # Include the custom targets in the generated build scripts (eg Makefile).
     QMAKE_EXTRA_TARGETS += coverage gcov lcov
