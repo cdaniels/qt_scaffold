@@ -12,4 +12,7 @@
 	url = https://github.com/cucumber/cucumber-cpp.git
 [submodule "lib/Catch"]
 	path = lib/Catch
-	url = https://github.com/philsquared/Catch.git
+    url = https://github.com/philsquared/Catch.git
+[submodule "lib/boost_1_57_0"]
+	path = lib/boost_1_57_0
+	url = git@github.com:cdaniels/boost_1_57_0.git

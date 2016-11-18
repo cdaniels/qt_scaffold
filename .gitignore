@@ -39,5 +39,9 @@ CMakeLists.txt.user
 # build directory
 build/**/*
 
+# vim temp files
+*.swp
+*.swo
+
 # submodule directory
 #lib/**/*
