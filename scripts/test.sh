@@ -2,6 +2,10 @@
 # load the shared library dependencies
 export LD_LIBRARY_PATH=./build/release
 
+# run static syntax and usage check
+cppcheck --enable=all ./app
+cppcheck --enable=all ./src
+
 # run the unit tests
 echo "--------------------------"
 echo "!!! RUNNING UNIT TESTS !!!"
