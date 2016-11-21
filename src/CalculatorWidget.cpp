@@ -113,6 +113,10 @@ void CalculatorWidget::addButtonClicked() {
     displayLabel->setText(displayLabel->text()+"+");
 }
 
+void CalculatorWidget::multiplyButtonClicked() {
+    displayLabel->setText(displayLabel->text()+"*");
+}
+
 void CalculatorWidget::buttonClicked(int index) {
     displayLabel->setText(displayLabel->text()+QString::number(index));
 }

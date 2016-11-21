@@ -37,6 +37,7 @@ private:
 private Q_SLOTS:
 
     void addButtonClicked();
+    void multiplyButtonClicked();
     void buttonClicked(int index);
     void calculateButtonClicked();
     void clearButtonClicked();

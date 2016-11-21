@@ -1,5 +1,6 @@
 #!/bin/bash
 ./scripts/compile.sh;
+#./scripts/initializeCoverage.sh;
 ./scripts/test.sh;
 ./scripts/processCoverage.sh;
 

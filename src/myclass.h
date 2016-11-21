@@ -4,6 +4,7 @@
 class MyClass {
 public:
     double addition(double a, double b);
+    double subtraction(double a, double b);
 };
 
 #endif // MYCLASS_H
