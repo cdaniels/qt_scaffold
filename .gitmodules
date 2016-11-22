@@ -15,4 +15,4 @@
     url = https://github.com/philsquared/Catch.git
 [submodule "lib/boost_1_57_0"]
 	path = lib/boost_1_57_0
-	url = git@github.com:cdaniels/boost_1_57_0.git
+	url = https://github.com/cdaniels/boost_1_57_0.git
