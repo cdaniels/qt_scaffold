@@ -25,6 +25,10 @@ before_install:
   - if [ "$QT_BASE" = "56" ]; then sudo add-apt-repository ppa:beineri/opt-qt561-trusty -y; fi
   - if [ "$QT_BASE" = "57" ]; then sudo add-apt-repository ppa:beineri/opt-qt57-trusty -y; fi
   - sudo apt-get update -qq
+  - export LDFLAGS="$LDFLAGS -L/home/travis/build/cdaniels/qt_scaffold/lib/boost_1_57_0/stage/lib"
+  - export CPPFLAGS="$CPPFLAGS -I/home/travis/build/cdaniels/qt_scaffold/lib/boost_1_57_0"
+  - export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/home/travis/build/cdaniels/qt_scaffold/lib/boost_1_57_0"
+  - export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/travis/build/cdaniels/qt_scaffold/lib/boost_1_57_0/stage/lib"
 
 install:
   - if [ "$QT_BASE" = "48" ]; then sudo apt-get install -qq opt-qt4-qmake opt-qt4-dev-tools; source /opt/qt-4.8/bin/qt-4.8-env.sh; fi
@@ -36,13 +40,22 @@ install:
   - if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
   - if [ "$QT_BASE" = "57" ]; then sudo apt-get install -qq qt57base; source /opt/qt57/bin/qt57-env.sh; fi
   - sudo apt-get install -qq cppcheck doxygen graphviz lcov
-  - gem install lcoveralls cucumber #rubygems  
+  - gem install lcoveralls cucumber #rubygems
+  - cd lib/boost_1_57_0 # build boosts
+  - ./bootstrap.sh
+  - ./b2 --minimal
+  - cd ../.. # build cucumber-cpp
+  - cd lib/cucumber-cpp 
+  - cmake -E make_directory build
+  - cmake -E chdir build cmake -DCUKE_ENABLE_EXAMPLES=off ..
+  - cmake --build build
+  - cd ../..
 
 before_script:
   - cppcheck --error-exitcode=1 --quiet ./src
 
 script:
-  - ./scripts/build_test_run.sh
+  - ./scripts/compile.sh
 
 after_success:
   - lcoveralls --retry-count 5
