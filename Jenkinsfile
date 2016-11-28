@@ -1,6 +1,10 @@
- node ('linux'){
-  stage 'Build and Test'
-  env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
-  checkout scm
-  sh 'mvn clean package'
- }
+// checkout and build the qt scaffold
+node {
+    // checkout code from repo
+    checkout scm
+    // run the build script
+    stage "Build from script"
+    sh '''
+        ant -Dplatforms.JDK_1.7.home=$JAVA_HOME jar;
+    '''
+}
